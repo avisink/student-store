@@ -12,3 +12,34 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+  id          Int @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
+  image_url   String
+  category    String
+  order_items OrderItem[]
+}
+
+model Order {
+  order_id      Int @id @default(autoincrement())
+  customer_id   Int @default(autoincrement())
+  total_price   Int
+  status        String
+  created_at    DateTime @default(now())
+  order_items OrderItem[]
+}
+
+model OrderItem {
+  order_item_id Int @id @default(autoincrement())
+  order_id      Int
+  product_id    Int
+  quantity      Int
+  price         Int
+  order         Order   @relation(fields: [order_id], references: [order_id])
+  product       Product @relation(fields: [product_id], references: [id])
+}
+
+//how can we link certain keys, likelink product id from order_items to id in product model?
