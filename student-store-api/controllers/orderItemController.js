@@ -26,11 +26,27 @@ const create = async (req, res) => {
     res.status(201).json(newOrder);
 };
   
+const update = async (req, res) => {
+  const id = Number(req.params.id);
+  const { order_id, total_price, status } = req.body;
+  const updatedOrder = await prisma.order.update({
+    where: { order_id: id },
+    data: { order_id, total_price, status },
+  });
+  res.json(updatedOrder);
+};
 
+const remove = async (req, res) => {
+  const id = Number(req.params.id);
+  await prisma.order.delete({ where: { order_id: id } });
+  res.status(204).end();
+};
   
   module.exports = {
     getAll,
     getByOrderId,
-    create
+    create,
+    update,
+    remove
   };
   
