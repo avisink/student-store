@@ -1,11 +1,18 @@
 require("dotenv").config();
-const express = require("express"); //importing express
-// const morgan
-const app = express(); //gets all express functions n the app variable, acts as an obj key, so i can do app.get or sumn
-const port = process.env.port || 3000;
+const express = require("express"); 
+const app = express();
+const port = process.env.PORT || 3000;
+const FRONTEND_URL = process.env.FRONTEND_URL;
 const productRoutes = require("../routes/productRoutes")
 const orderRoutes = require("../routes/orderRoutes.js");
 const itemOrderRoutes = require("../routes/orderItemRoutes.js");
+
+const cors = require('cors')
+
+const corsOptions = {
+  origin: `${FRONTEND_URL}`,
+}
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use("/products", productRoutes)
