@@ -13,6 +13,7 @@ const CartTable = ({ products, cart }) => {
 
   const productRows = Object.keys(cart).map((productId) => {
     const product = productMapping[productId];
+  
 
     if (!product) {
       console.error(`Product with ID ${productId} not found in products array.`);
@@ -24,9 +25,13 @@ const CartTable = ({ products, cart }) => {
       quantity: cart[productId],
       totalPrice: cart[productId] * product.price,
     };
-  }).filter(row => row !== null); // Filter out any null values
+  }).filter(row => row !== null); 
+
 
   const subTotal = productRows.reduce((acc, p) => acc + p.totalPrice, 0);
+
+
+
 
   return (
     <>
@@ -74,9 +79,13 @@ const CartTable = ({ products, cart }) => {
   );
 };
 
-const CartItems = ({ products, cart }) => {
-  const hasItems = Object.keys(cart).length;
 
+const CartItems = ({ products, cart }) => {
+  const hasItems = Object.keys(cart).length;  
+  //brainstorming
+  // //when this is greater than 0, then one can checkout? how to link to checkout though???
+
+  // to populate cart, but after checkout, it should go back to when not hasItems, or the default empty cart.
   return (
     <>
       <h3 className="">
@@ -91,7 +100,7 @@ const CartItems = ({ products, cart }) => {
         </>
       ) : (
         <>
-          <div className="notification">No items added to cart yet. Start shopping now!</div>
+          <div className="notification">No items added to cart yet. Start shopping now!</div> 
         </>
       )}
     </>
