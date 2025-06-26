@@ -7,20 +7,20 @@ const orders = await prisma.order.findMany({
   include: { order_items: true },
 });
 
-// For each order, calculate and update the total_price
+
 await Promise.all(
   orders.map(async (order) => {
     const total = order.order_items.reduce(
       (sum, item) => sum + item.price * item.quantity,
       0
-    );
-    // Only update if the total is different (optional optimization)
+    ); // i need to add the taxes too though, for the front end
+    //only update if the total is different, for optimizashunn
     if (order.total_price !== total) {
       await prisma.order.update({
         where: { order_id: order.order_id },
         data: { total_price: total },
       });
-      order.total_price = total; // Update the value in the returned object
+      order.total_price = total; 
     }
   })
 );
@@ -68,9 +68,9 @@ const getTotal = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const { customer_id, status } = req.body;
+  const { customer_id, total_price, status } = req.body;
   const newOrder = await prisma.order.create({
-    data: { customer_id, status },
+    data: { customer_id, total_price, status },
   });
   res.status(201).json(newOrder);
 };
