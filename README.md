@@ -2,8 +2,6 @@
 
 Submitted by: **Ayomide Isinkaye**
 
-Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
-
 ### Application Features
 
 #### CORE FEATURES
@@ -100,7 +98,7 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 `TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+![trimmed.gif](https://github.com/avisink/student-store/blob/main/assets/trimmed.gif)
 
 ### Reflection
 
