@@ -25,8 +25,8 @@ model Product {
 
 model Order {
   order_id      Int @id @default(autoincrement())
-  customer_id   Int @default(autoincrement())
-  total_price   Int
+  customer_id   Int 
+  total_price   Float
   status        String
   created_at    DateTime @default(now())
   order_items OrderItem[]
@@ -38,8 +38,8 @@ model OrderItem {
   product_id    Int
   quantity      Int
   price         Int
-  order         Order   @relation(fields: [order_id], references: [order_id])
-  product       Product @relation(fields: [product_id], references: [id])
+  order         Order   @relation(fields: [order_id], references: [order_id], onDelete: Cascade)
+  product       Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
 }
 
 //how can we link certain keys, likelink product id from order_items to id in product model?
