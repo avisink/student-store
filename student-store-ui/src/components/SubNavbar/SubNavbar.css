@@ -131,3 +131,51 @@
 .SubNavbar .category-menu li button:active {
   transform: translateY(1px);
 }
+
+.SubNavbar .pages button {
+  background: var(--bright-green);
+  color: var(--pure-white);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  margin: 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.SubNavbar .pages button:hover,
+.SubNavbar .pages button:focus {
+  background: var(--accent-orange);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  outline: none;
+}
+.SubNavbar .topnav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.SubNavbar .pages {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.topnav ul li {
+  list-style-type: none;
+}
+
+.pages {
+  display: flex;
+  flex-direction: row;
+}
