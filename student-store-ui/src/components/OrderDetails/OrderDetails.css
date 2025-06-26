@@ -1,0 +1,54 @@
+.OrderDetails {
+    width: 100%;
+    max-width: none;
+    margin: 2.5rem 0;
+    background: #fff;
+    border-radius: 8px;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+  }
+  
+  .orders-table, .order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .orders-table th, .orders-table td,
+  .order-items-table th, .order-items-table td {
+    border: 1px solid #000000;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .order-row:hover {
+    background: #f5f5f5;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #1976d2;
+    text-decoration: none;
+  }
+  
+  .order-total {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+  }
+
+
+  .order-items-table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .order-items-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
