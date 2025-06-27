@@ -76,7 +76,7 @@ function App() {
     //creating the order
     try {
       console.log({ customerId, total_price });
-      const orderRes = await axios.post("http://localhost:5000/orders", {
+      const orderRes = await axios.post(`http://localhost:5000/orders`, {
         customer_id: customerId,
         total_price,
         status: "created",
@@ -93,6 +93,7 @@ function App() {
 
       setOrder(order);
       setCart({});
+      setSidebarOpen(false);
     } catch (err) {
       setError("Could not place order");
     } finally {

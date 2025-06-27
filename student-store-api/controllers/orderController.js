@@ -34,12 +34,19 @@ const getById = async (req, res) => {
   if (!order) return res.status(404).json({ error: "Not found!" });
   res.json(order);
 };
-
 const getWithItems = async (req, res) => {
   const id = Number(req.params.id);
   const order = await prisma.order.findUnique({
     where: { order_id: id },
-    include: { order_items: true },
+    include: {
+      order_items: {
+        include: {
+          product: {
+            select: { name: true},
+          },
+        },
+      },
+    },
   });
   if (!order) return res.status(404).json({ error: "Not found!" });
   res.json(order);

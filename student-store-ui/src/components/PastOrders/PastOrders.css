@@ -36,7 +36,7 @@
     width: 100%;
     overflow-x: auto;
   }
-  
+
   .orders-table th, .orders-table td {
     padding: 1rem 1.2rem;
     text-align: left;
@@ -62,8 +62,8 @@
     cursor: pointer;
   }
   
-  .order-row:hover {
-    background: #e6f9f3;
+  .orders-table .order-row td:hover {
+    background: #6d8f84 !important;
   }
   
   .order-total {

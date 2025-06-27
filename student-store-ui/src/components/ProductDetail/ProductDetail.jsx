@@ -42,7 +42,9 @@ function ProductDetail({ addToCart, removeFromCart, getQuantityOfItemInCart }) {
       // setIsFetching(true); these 2 lines totally messed up my product rendering, ensure to delete
       setError(null);
       try {
-        const res = await axios.get(`http://localhost:5000/products/${productId}`);
+        const res = await axios.get(
+          `http://localhost:5000/products/${productId}`
+        );
         setProduct(res.data);
         console.log(res.data);
       } catch (err) {
